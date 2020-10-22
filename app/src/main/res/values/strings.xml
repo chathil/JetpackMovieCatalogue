@@ -1,0 +1,22 @@
+<resources>
+    <string name="app_name">Jetpack Movie Catalogue</string>
+    <string name="movie">Movies</string>
+    <string name="tvshow">TV Shows</string>
+    <string name="movie_poster">movie poster</string>
+    <string name="thor">Thot The Dark World</string>
+    <string name="coming_soon">Coming Soon</string>
+    <string name="user_score">User Score</string>
+    <string name="overview">In Depression-era London, a now-grown Jane and Michael Banks, along with Michael\'s three children, are visited by the enigmatic Mary Poppins following a personal loss. Through her unique magical skills, and with the aid of her friend Jack, she helps the family rediscover the joy and wonder missing in their lives.</string>
+    <string name="btn_back">back button</string>
+    <string name="percent">%</string>
+    <string name="img_not_found">image not found</string>
+    <string name="btn_like">like button</string>
+    <string name="myname">Abdul Chathil</string>
+    <string name="cast">Cast</string>
+    <string name="genre_not_found">Genre Not Found</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="fav">Favorites</string>
+    <string name="err">Something went wrong</string>
+
+</resources>

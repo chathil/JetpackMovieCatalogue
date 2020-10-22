@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "770991835152",
+    "firebase_url": "https://adoptme-9cad7.firebaseio.com",
+    "project_id": "adoptme-9cad7",
+    "storage_bucket": "adoptme-9cad7.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:770991835152:android:67a1d3fe9a23b16c25e295",
+        "android_client_info": {
+          "package_name": "com.app.jetpackmoviecatalogue.debug"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "770991835152-e1p7qftbqssl3v120bdmpr8j0p24f2im.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.app.jetpackmoviecatalogue.debug",
+            "certificate_hash": "cce11acfcf790e86e2229180219fa27e7c0b0f5e"
+          }
+        },
+        {
+          "client_id": "770991835152-tgqakkhu4fa5dham64lnfgbeqd49gggg.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA6sKAnmf5gZqWXaSkHdphE6oN5zYixYgg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "770991835152-tgqakkhu4fa5dham64lnfgbeqd49gggg.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/crew_card"
+        android:layout_width="162dp"
+        android:layout_marginEnd="4dp"
+        android:backgroundTint="@color/colorAccent"
+        android:foregroundGravity="bottom"
+        android:layout_height="wrap_content">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/cast_photo"
+                android:layout_width="162dp"
+                android:layout_height="162dp"
+                android:background="@color/colorAccent"
+                android:scaleType="centerCrop"
+                android:src="@drawable/ic_broken_image_black_24dp"
+                app:layout_constraintBottom_toTopOf="@+id/cast_name"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:srcCompat="@tools:sample/avatars"
+                android:contentDescription="@string/cast" />
+
+            <ImageView
+                android:id="@+id/img_not_found"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_broken_image_black_24dp"
+                android:visibility="gone"
+                app:layout_constraintBottom_toBottomOf="@+id/cast_photo"
+                app:layout_constraintEnd_toEndOf="@+id/cast_photo"
+                app:layout_constraintStart_toStartOf="@+id/cast_photo"
+                app:layout_constraintTop_toTopOf="@+id/cast_photo"
+                android:contentDescription="@string/img_not_found" />
+
+            <TextView
+                android:id="@+id/cast_name"
+                style="@style/TextAppearance.MaterialComponents.Body2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="4dp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toTopOf="@+id/cast_character"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/cast_photo"
+                tools:text="@string/myname" />
+
+            <TextView
+                android:id="@+id/cast_character"
+                style="@style/TextAppearance.MaterialComponents.Caption"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="4dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/cast_name"
+                app:layout_constraintTop_toBottomOf="@+id/cast_name"
+                tools:text="@string/myname" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    </com.google.android.material.card.MaterialCardView>
+</layout>

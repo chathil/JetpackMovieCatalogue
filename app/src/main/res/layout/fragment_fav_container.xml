@@ -1,0 +1,59 @@
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context="com.app.jetpackmoviecatalogue.ui.main.FavContainerFragment">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:elevation="0dp"
+            android:paddingBottom="16dp">
+
+            <TextView
+                android:id="@+id/section_label"
+                style="@style/SectionTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="56dp"
+                android:text="@string/fav"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/sub_section_movies"
+                style="@style/SubSectionTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="@string/movie"
+                android:textColor="@color/textColorPrimary"
+                app:layout_constraintStart_toStartOf="@+id/section_label"
+                app:layout_constraintTop_toBottomOf="@+id/section_label" />
+
+            <TextView
+                android:id="@+id/sub_section_tvshows"
+                style="@style/SubSectionTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:text="@string/tvshow"
+                android:textColor="@color/colorDisabled"
+                app:layout_constraintBottom_toBottomOf="@+id/sub_section_movies"
+                app:layout_constraintStart_toEndOf="@+id/sub_section_movies"
+                app:layout_constraintTop_toTopOf="@+id/sub_section_movies" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.viewpager.widget.ViewPager
+            android:id="@+id/fav_pager"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:elevation="8dp"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior" />
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+</layout>

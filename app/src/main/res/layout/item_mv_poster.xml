@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/mv_img_card"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:nestedScrollingEnabled="true"
+        app:cardCornerRadius="8dp"
+        app:cardElevation="16dp"
+        app:layout_constraintBottom_toBottomOf="@+id/mv_poster_container"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/mv_poster_container">
+
+        <ImageView
+            android:id="@+id/mv_img"
+            android:layout_width="@dimen/detail_mv_poster_w"
+            android:layout_height="@dimen/detail_mv_poster_h"
+            android:contentDescription="@string/movie_poster"
+            tools:srcCompat="@tools:sample/avatars" />
+
+        <ImageView
+            android:id="@+id/img_not_found"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:contentDescription="@string/img_not_found"
+            android:src="@drawable/ic_broken_image_black_24dp"
+            android:visibility="gone" />
+
+    </androidx.cardview.widget.CardView>
+</layout>

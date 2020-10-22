@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/white"
+        android:paddingTop="8dp">
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/card_bg"
+            android:layout_width="match_parent"
+            android:layout_height="132dp"
+            app:cardCornerRadius="8dp"
+            app:cardElevation="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="1.0"
+            tools:backgroundTint="@color/colorPrimary" />
+
+        <TextView
+            android:id="@+id/mv_title"
+            style="@style/MyTitle.Main"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:ellipsize="end"
+            android:maxWidth="200dp"
+            android:maxLines="1"
+            app:layout_constraintBottom_toTopOf="@+id/mv_date"
+            app:layout_constraintStart_toEndOf="@+id/cardView"
+            app:layout_constraintTop_toTopOf="@+id/card_bg"
+            app:layout_constraintVertical_bias="0.0"
+            tools:text="@string/thor" />
+
+        <TextView
+            android:id="@+id/mv_rating_percentage"
+            style="@style/TextAppearance.MaterialComponents.Overline"
+            android:layout_width="46dp"
+            android:layout_height="46dp"
+            android:gravity="center"
+            android:letterSpacing="0"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@+id/mv_rating_chart"
+            app:layout_constraintEnd_toEndOf="@+id/mv_rating_chart"
+            app:layout_constraintStart_toStartOf="@+id/mv_rating_chart"
+            app:layout_constraintTop_toTopOf="@+id/mv_rating_chart"
+            tools:text="75%" />
+
+        <TextView
+            style="@style/TextAppearance.AppCompat.Body2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:text="@string/user_score"
+            app:layout_constraintBottom_toBottomOf="@+id/mv_rating_chart"
+            app:layout_constraintStart_toEndOf="@+id/mv_rating_percentage"
+            app:layout_constraintTop_toTopOf="@+id/mv_rating_chart" />
+
+        <TextView
+            android:id="@+id/mv_is_released"
+            style="@style/TextAppearance.MaterialComponents.Overline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:text="@string/coming_soon"
+            app:layout_constraintBottom_toTopOf="@+id/card_bg"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toEndOf="@+id/cardView"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/mv_date"
+            style="@style/TextAppearance.MaterialComponents.Caption"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="@+id/mv_title"
+            app:layout_constraintTop_toBottomOf="@+id/mv_title"
+            tools:text="2018" />
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardView"
+            android:layout_width="108dp"
+            android:layout_height="160dp"
+            android:layout_centerInParent="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginStart="16dp"
+            android:layout_marginBottom="16dp"
+            android:fadingEdgeLength="4dp"
+            android:orientation="vertical"
+            app:cardCornerRadius="8dp"
+            app:cardElevation="4dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/mv_img"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/colorAccent"
+                android:contentDescription="@string/movie_poster"
+                android:scaleType="centerCrop"
+                tools:srcCompat="@tools:sample/avatars" />
+
+            <ImageView
+                android:id="@+id/img_not_found"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:contentDescription="@string/img_not_found"
+                android:src="@drawable/ic_broken_image_black_24dp"
+                android:visibility="gone" />
+
+        </androidx.cardview.widget.CardView>
+
+        <com.mikhaellopez.circularprogressbar.CircularProgressBar
+            android:id="@+id/mv_rating_chart"
+            android:layout_width="46dp"
+            android:layout_height="46dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            app:cpb_background_progressbar_color="#b6bbd8"
+            app:cpb_background_progressbar_width="3dp"
+            app:cpb_progress_direction="to_right"
+            app:cpb_progressbar_color="#3f51b5"
+            app:cpb_progressbar_width="6dp"
+            app:cpb_round_border="true"
+            app:layout_constraintBottom_toBottomOf="@+id/card_bg"
+            app:layout_constraintStart_toEndOf="@+id/cardView"
+            app:layout_constraintTop_toBottomOf="@+id/mv_date"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <ImageButton
+            android:id="@+id/btn_like"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            android:contentDescription="@string/btn_like"
+            android:padding="16dp"
+            android:src="@drawable/ic_favorite_border_black_24dp"
+            app:layout_constraintBottom_toBottomOf="@+id/card_bg"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

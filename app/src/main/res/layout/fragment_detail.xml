@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="fragment"
+            type="com.app.jetpackmoviecatalogue.ui.detail.PlaceholderFragmentDetail" />
+
+        <variable
+            name="viewModel"
+            type="com.app.jetpackmoviecatalogue.ui.detail.PageViewModelDetail" />
+
+        <import type="android.text.Html" />
+
+        <import type="com.app.jetpackmoviecatalogue.utils.MyUtils" />
+
+        <import type="android.view.View" />
+    </data>
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        app:cardElevation="16dp">
+
+        <androidx.coordinatorlayout.widget.CoordinatorLayout
+            android:id="@+id/container"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <androidx.core.widget.NestedScrollView
+                android:id="@+id/mv_detail_sv"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="100dp">
+
+                    <ImageView
+                        android:id="@+id/mv_poster_backdrop"
+                        android:layout_width="match_parent"
+                        android:layout_height="350dp"
+                        android:contentDescription="@string/movie_poster"
+                        android:elevation="0dp"
+                        android:scaleType="centerCrop"
+                        android:src="@color/colorPrimary"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/mv_title"
+                        style="@style/MyTitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:elevation="1dp"
+                        android:text="@{viewModel.content.title}"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/mv_date"
+                        app:layout_goneMarginEnd="16dp"
+                        tools:text="Side Job" />
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/rv_genre"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:clipToPadding="false"
+                        android:elevation="1dp"
+                        android:orientation="horizontal"
+                        android:paddingStart="16dp"
+                        android:paddingTop="8dp"
+                        android:paddingBottom="16dp"
+                        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/mv_title"
+                        tools:ignore="RtlSymmetry"
+                        tools:itemCount="6"
+                        tools:listitem="@layout/item_genre" />
+
+
+                    <ImageView
+                        android:id="@+id/mv_poster_container"
+                        android:layout_width="match_parent"
+                        android:layout_height="350dp"
+                        android:contentDescription="@string/movie_poster"
+                        android:src="@color/colorPrimary"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        style="@style/TextAppearance.AppCompat.Body2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginEnd="8dp"
+                        android:text="@string/user_score"
+                        app:layout_constraintBottom_toBottomOf="@+id/mv_rating_chart"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.0"
+                        app:layout_constraintStart_toEndOf="@+id/mv_rating_chart"
+                        app:layout_constraintTop_toTopOf="@+id/mv_rating_chart"
+                        app:layout_goneMarginEnd="8dp" />
+
+
+                    <TextView
+                        android:id="@+id/mv_overview"
+                        style="@style/TextAppearance.MaterialComponents.Body1"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginTop="32dp"
+                        android:layout_marginEnd="16dp"
+                        android:paddingBottom="92dp"
+                        android:text="@{viewModel.content.overview}"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/mv_rating_chart"
+                        app:layout_goneMarginEnd="16dp"
+                        tools:text="@string/overview" />
+
+                    <TextView
+                        android:id="@+id/mv_rating_percentage"
+                        style="@style/TextAppearance.MaterialComponents.Body2"
+                        android:layout_width="46dp"
+                        android:layout_height="46dp"
+                        android:gravity="center"
+                        android:letterSpacing="0"
+                        android:text="@{MyUtils.isReleased(viewModel.content.date) ? @string/coming_soon : Html.fromHtml(viewModel.content.userScore + @string/percent)}"
+                        android:textStyle="bold"
+                        app:layout_constraintBottom_toBottomOf="@+id/mv_rating_chart"
+                        app:layout_constraintEnd_toEndOf="@+id/mv_rating_chart"
+                        app:layout_constraintStart_toStartOf="@+id/mv_rating_chart"
+                        app:layout_constraintTop_toTopOf="@+id/mv_rating_chart"
+                        tools:text="75%" />
+
+                    <TextView
+                        android:id="@+id/mv_date"
+                        style="@style/TextAppearance.MaterialComponents.Overline"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginTop="96dp"
+                        android:text="@{MyUtils.isReleased(viewModel.content.date) ? @string/coming_soon : MyUtils.getDate(viewModel.content.date)}"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="@+id/mv_poster_backdrop"
+                        tools:text="December 12, 2019" />
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/rv_crews"
+                        android:layout_width="wrap_content"
+                        android:layout_height="@dimen/detail_mv_poster_h"
+                        android:layout_gravity="bottom"
+                        android:adjustViewBounds="true"
+                        android:clipToPadding="false"
+                        android:focusableInTouchMode="true"
+                        android:foregroundGravity="bottom"
+                        android:orientation="horizontal"
+                        android:paddingStart="96dp"
+                        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/rv_genre"
+                        tools:ignore="RtlSymmetry"
+                        tools:itemCount="8"
+                        tools:listitem="@layout/item_cast" />
+
+                    <com.facebook.shimmer.ShimmerFrameLayout
+                        android:id="@+id/detail_loading"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingStart="96dp"
+                        android:visibility="gone"
+                        app:layout_constraintBottom_toBottomOf="@+id/rv_crews"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="@+id/rv_crews">
+
+                        <include layout="@layout/detail_shimmer" />
+                    </com.facebook.shimmer.ShimmerFrameLayout>
+
+                    <com.mikhaellopez.circularprogressbar.CircularProgressBar
+                        android:id="@+id/mv_rating_chart"
+                        android:layout_width="64dp"
+                        android:layout_height="64dp"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginTop="32dp"
+                        app:cpb_background_progressbar_color="#b6bbd8"
+                        app:cpb_background_progressbar_width="3dp"
+                        app:cpb_progress_direction="to_right"
+                        app:cpb_progressbar_color="#3f51b5"
+                        app:cpb_progressbar_width="6dp"
+                        app:cpb_round_border="true"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.0"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/rv_crews" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </androidx.core.widget.NestedScrollView>
+        </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+</layout>
